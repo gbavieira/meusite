@@ -1,0 +1,203 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include 'partials/_header.html' %}
+<!--
+==================================================
+Slider Section Start
+================================================== -->
+<section id="hero-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="block wow fadeInUp" data-wow-delay=".3s">
+
+          <!-- Slider -->
+          <section class="cd-intro">
+            <h1 class="wow fadeInUp animated cd-headline slide" data-wow-delay=".4s">
+              <span>HI, MY NAME IS GABRIEL &amp; I AM A</span><br>
+              <span class="cd-words-wrapper">
+                <b class="is-visible">BACKEND DEVELOPER</b>
+              </span>
+            </h1>
+          </section> <!-- cd-intro -->
+          <!-- /.slider -->
+          <h2 class="wow fadeInUp animated" data-wow-delay=".6s">
+            I am currently in career transition from environmental engineer to web backend developer.<br> 
+            I use Django Framework to develop my applications and now I am studying AWS deployment and REST API.<br>
+            This site showcases some of my work.
+          </h2>
+          <!-- <a class="btn-lines dark light wow fadeInUp animated btn btn-default btn-green hvr-bounce-to-right"
+            data-wow-delay=".9s" href="https://themefisher.com/" target="_blank">Download More</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--/#main-slider-->
+
+<!--
+==================================================
+About Section Start
+================================================== -->
+<section id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-6">
+        <div class="block wow fadeInLeft" data-wow-delay=".3s" data-wow-duration="500ms">
+          <h2>
+            ABOUT ME
+          </h2>
+          <p>
+            Hello, I’m a Back-end developer from João Pessoa, Brazil. I hold a bachelor degree of
+            Environmental Engineering from the Federal University of Viçosa. I am currently in career transition to back-end development.
+
+          </p>
+          <p>
+            I develop my applications using Django Framework and Django REST API. I have done some presential and online courses and have some certificates.
+            I am looking for my first opportunity to work with Django professionally in the IT industry.
+          </p>
+          <p>
+            Curiosity, easy-learning, googling and determination are my main characteristics. I speak english fluently, spanish at intermediate level and portuguese is my mother tounge.
+            
+          </p>
+        </div>
+
+      </div>
+      <div class="col-md-6 col-sm-6">
+        <div class="block wow fadeInRight" data-wow-delay=".3s" data-wow-duration="500ms">
+          <img src="{% static 'images/about/about.jpg' %}" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</section> <!-- /#about -->
+
+
+<!--
+==================================================
+Portfolio Section Start
+================================================== -->
+<section id="works" class="works">
+  <div class="container">
+    <div class="section-heading">
+      <h1 class="title wow fadeInDown" data-wow-delay=".3s">Latest Works</h1>
+      <p class="wow fadeInDown" data-wow-delay=".5s">
+        Hidreo energy solutions calculator <br> recipes website.
+      </p>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-sm-6">
+        <figure class="wow fadeInLeft animated portfolio-item" data-wow-duration="500ms" data-wow-delay="0ms">
+          <div class="img-wrapper">
+            <img src="{% static 'images/portfolio/mch.webp' %}" class="img-fluid" alt="this is a title">
+            <div class="overlay">
+              <div class="buttons">
+                <a rel="gallery" class="fancybox" href="{% static 'images/portfolio/mch.webp' %}">Demo</a>
+                <a target="_blank" href="{% url 'calculadora' %}">Details</a>
+              </div>
+            </div>
+          </div>
+          <figcaption>
+            <h4>
+              <a href="#">
+                Calculadora Hidreo
+              </a>
+            </h4>
+            <p>
+              Hydric Power Potential Calculator for Hidreo energy solutions website
+            </p>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="300ms">
+          <div class="img-wrapper">
+            <img src="{% static 'images/portfolio/item-2.jpg' %}" class="img-fluid" alt="this is a title">
+            <div class="overlay">
+              <div class="buttons">
+                <a rel="gallery" class="fancybox" href="{% static 'images/portfolio/item-2.jpg' %}">Demo</a>
+                <a target="_blank" href="single-portfolio.html">Details</a>
+              </div>
+            </div>
+          </div>
+          <figcaption>
+            <h4>
+              <a href="#">
+                Alura Receitas
+              </a>
+            </h4>
+            <p>
+              Website for recipes from Alura Django course.
+            </p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section> <!-- #works -->
+<!--
+==================================================
+Portfolio Section Start
+================================================== -->
+<section id="feature">
+  <div class="container">
+    <div class="section-heading">
+      <h1 class="title wow fadeInDown" data-wow-delay=".3s">Offer From Me</h1>
+      <p class="wow fadeInDown" data-wow-delay=".5s">
+        If you came here looking for some services, this is what I can offer you:<br>
+      </p>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-lg-4">
+        <div class="media wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="300ms">
+          <div class="media-left">
+            <div class="icon">
+              <i class="ion-ios-flask-outline"></i>
+            </div>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">Back-end website in Python</h4>
+            <p>Create websites for your business using Python. Website can contain registering, login/logout, database access and storage.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="media wow fadeInDown animated" data-wow-duration="500ms" data-wow-delay="600ms">
+          <div class="media-left">
+            <div class="icon">
+              <i class="ion-ios-lightbulb-outline"></i>
+            </div>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">Django Maintenance</h4>
+            <p>Django maintenance in any application you might have and need to add or remove features.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> <!-- /#feature -->
+}
+
+<!--
+==================================================
+Call To Action Section Start
+================================================== -->
+<section id="call-to-action">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block">
+                    <h2 class="title wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">SO WHAT YOU THINK ?</h1>
+                    <p class="wow fadeInDown" data-wow-delay=".5s" data-wow-duration="500ms">Please give me your feedback! I'm eager to know what you think about my portfolio.<br>Do not hesitate to contact me for anything!</p>
+                    <a href="contact.html" class="btn btn-default btn-contact wow fadeInDown" data-wow-delay=".7s" data-wow-duration="500ms">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include 'partials/_footer.html' %}
+{% endblock %}         

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% include 'partials/_menu.html' %}
+
+<table>
+  <tr>
+    <td>Nome:</td>
+    <td> {{ nome }} <br /></td>
+  </tr>
+    <tr>
+      <td>Desnível:</td>
+      <td> {{ desnivel }} <br /></td>
+    </tr>
+    <tr>
+      <td>Vazão:</td>
+      <td> {{ vazao }} <br /></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td>Quantidade de MCHs: {{ mchs }}</td>
+    </tr>
+    <tr>
+        <td>Quantidade de Potência: {{ potencia }} W</td>
+    </tr>
+</table>
+
+<section>
+  <a href="{% url 'index' %}" class='btn btn-info' role="button">Voltar Para o Início</a>
+  <a href="https://hidreo.com.br/" class='btn btn-info' role="button">Voltar Para o Site</a>
+  <a href="{% url 'basica' %}" class='btn btn-info' role="button">Calcularadora Básica</a>
+  <a href="{% url 'avancada' %}" class='btn btn-info' role="button">Calcularadora Avançada</a>
+</section>
+
+
+{% include 'partials/_footer.html' %}
+{% endblock %}

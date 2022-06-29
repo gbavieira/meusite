@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% include 'partials/_menu.html' %}
+
+<section class='container col-6'>
+<table>
+  <tr>
+    <td>Desnível:</td>
+    <td>{{form_avancada.desnivel.value}} <br /></td>
+  </tr>
+  <tr>
+    <td>Vazão:</td>
+    <td>{{form_avancada.vazao.value}} <br /></td>
+  </tr>
+  <tr>
+    <td>Distância Hidráulica: {{ form_avancada.dist_hidr.value }}</td>
+  </tr>
+  <tr>
+    <td>Distância Elétrica: {{ form_avancada.dist_eletr.value }}</td>
+  </tr>
+  <tr>
+    <td>Modelo: {{ form_avancada.modelo.value }}</td>
+  </tr>
+  <tr>
+    <td>Tipo de Cabo: {{ form_avancada.tipo_cabo.value }}</td>
+  </tr>
+  <tr>
+    <td>Diâmetro Econômico: {{ diametro_econ }}</td>
+  </tr>
+  <tr>
+    <td>Diâmetro Comercial: {{ diametro_comercial }}</td>
+  </tr>
+  <tr>
+    <td>Velocidade do Escoamento: {{ vel_escoamento }}</td>
+  </tr>
+  <tr>
+    <td>Perda de Carga Unitária: {{ perda_carga_unit }}</td>
+  </tr>
+  <tr>
+    <td>Perda de Carga na Tubulação: {{ perda_carga_tub }}</td>
+  </tr>
+  <tr>
+    <td>Perda de Carga Total: {{ perda_carga_conex_total }}</td>
+  </tr>
+  <tr>
+    <td>Desnível Útil: {{ desnivel_real }}</td>
+  </tr>
+  <tr>
+    <td>Porcentagem da Perda: {{ porcentagem_perda }}</td>
+  </tr>
+  <tr>
+    <td>Quantidade de MCHs: {{ mchs }}</td>
+  </tr>
+  <tr>
+      <td>Quantidade de Potência: {{pot_util}} W</td>
+  </tr>
+  <tr>
+    <td>Bitola Recomendada: {{bitola_real}} mm²</td>
+</tr>
+<tr>
+  <td>Quantidade de Potência: {{pot_util}} W</td>
+</tr>
+</table>
+<section>
+  <a href="{% url 'index' %}" class='btn btn-info' role="button">Voltar Para o Início</a>
+  <a href="https://hidreo.com.br/" class='btn btn-info' role="button">Voltar Para o Site</a>
+  <a href="{% url 'basica' %}" class='btn btn-info' role="button">Calcularadora Básica</a>
+  <a href="{% url 'avancada' %}" class='btn btn-info' role="button">Calcularadora Avançada</a>
+</section>
+</section>
+
+
+{% include 'partials/_footer.html' %}
+{% endblock %}
