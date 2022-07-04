@@ -3,29 +3,32 @@
 
 {% include 'partials/_menu.html' %}
 
+<section>
 <table>
-  <tr>
-    <td>Nome:</td>
-    <td> {{ nome }} <br /></td>
-  </tr>
-    <tr>
-      <td>Desnível:</td>
-      <td> {{ desnivel }} <br /></td>
-    </tr>
-    <tr>
-      <td>Vazão:</td>
-      <td> {{ vazao }} <br /></td>
-    </tr>
-</table>
+  <div>
+    Nome:
+    {{ nome.nome }} <br>
 
-<table>
-    <tr>
-        <td>Quantidade de MCHs: {{ mchs }}</td>
-    </tr>
-    <tr>
-        <td>Quantidade de Potência: {{ potencia }} W</td>
-    </tr>
+    Desnível:
+    {{ desnivel.desnivel }} m<br>
+
+    Vazão:
+    {{ vazao.vazao }} L/s<br>
+
+    Quantidade de MCHs: {{ mchs.mchs }} <br>
+
+    Quantidade de Potência: {{ potencia.potencia }} W <br>
+
+    Concessionária: {{ concessionaria.concessionaria }}<br>
+
+    E-mail: {{ email.email }} <br>
+
+    Modelo: {{ modelo.modelo }}<br>
+
+    Data da pesquisa: {{ data.data }}<br>
+
 </table>
+</section>
 
 <section>
   <a href="{% url 'index' %}" class='btn btn-info' role="button">Voltar Para o Início</a>

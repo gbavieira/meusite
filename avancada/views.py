@@ -107,3 +107,28 @@ def avancada(request):
         dados = {'form_avancada':form_avancada,}
         return render(request,'avancada_forms.html', dados)
 
+def avancada_resultado(request):
+    if request.method == 'GET':
+        nome = LeadAvancada.objects.latest('id')
+        desnivel = LeadAvancada.objects.latest('desnivel')
+        vazao = LeadAvancada.objects.latest('vazao')
+        mchs = LeadAvancada.objects.latest('mchs')
+        potencia = LeadAvancada.objects.latest('potencia')
+        concessionaria = LeadAvancada.objects.latest('concessionaria')
+        email = LeadAvancada.objects.latest('email')
+        modelo = LeadAvancada.objects.latest('modelo')
+        data = LeadAvancada.objects.latest('data')
+
+        dados = {
+            'nome':nome,
+            'desnivel':desnivel,
+            'vazao':vazao,
+            'mchs':mchs,
+            'potencia':potencia,
+            'concessionaria':concessionaria,
+            'email':email,
+            'modelo':modelo,
+            'data':data,
+        }
+
+        return render(request,'basica_resultado.html', dados)

@@ -26,7 +26,7 @@ def basica (request):
             messages.error(request, 'Todos os campos são obrigatórios e não podem ficar em branco!')
             return redirect('basica_forms')
 
-        lead = LeadBasica.objects.create(nome=nome,desnivel=desnivel, vazao=vazao,potencia=potencia,mchs=mchs)
+        lead = LeadBasica.objects.create(nome=nome,desnivel=desnivel, vazao=vazao,potencia=potencia,mchs=mchs,telefone=request.POST['telefone'],cpf_cnpj=request.POST['cpf_cnpj'],concessionaria=request.POST['concessionaria'],email=request.POST['email'],modelo=request.POST['modelo'],data=request.POST['data'],)
         lead.save()
 
         dados = {'form':form,'potencia':potencia,'mchs':mchs,}
@@ -37,15 +37,28 @@ def basica (request):
         dados = {'form':form,}
         return render(request,'basica_forms.html', dados)
     
-    
 def basica_resultado (request):
     if request.method == 'GET':
         nome = LeadBasica.objects.latest('id')
-        desnivel = LeadBasica.objects.latest(desnivel=None)
+        desnivel = LeadBasica.objects.latest('desnivel')
+        vazao = LeadBasica.objects.latest('vazao')
+        mchs = LeadBasica.objects.latest('mchs')
+        potencia = LeadBasica.objects.latest('potencia')
+        concessionaria = LeadBasica.objects.latest('concessionaria')
+        email = LeadBasica.objects.latest('email')
+        modelo = LeadBasica.objects.latest('modelo')
+        data = LeadBasica.objects.latest('data')
 
         dados = {
             'nome':nome,
             'desnivel':desnivel,
+            'vazao':vazao,
+            'mchs':mchs,
+            'potencia':potencia,
+            'concessionaria':concessionaria,
+            'email':email,
+            'modelo':modelo,
+            'data':data,
         }
 
         return render(request,'basica_resultado.html', dados)
