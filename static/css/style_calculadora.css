@@ -130,6 +130,14 @@
   color: #02bdd5;
 }
 
+#basica {
+  background-color: #244782;
+  padding: 230px 0;
+  color: #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
 #hero-area {
   background: url("../images/cachoeira.jpg") no-repeat 50%;
   background-size: cover;

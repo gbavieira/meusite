@@ -1,0 +1,55 @@
+{% load static %}
+<!--
+==================================================
+Portfolio Section Start
+================================================== -->
+
+<div class="row">
+  <div class="col-md-4 col-sm-6">
+    <figure class="wow fadeInLeft animated portfolio-item" data-wow-duration="500ms" data-wow-delay="0ms">
+      <div class="img-wrapper">
+        <img src="{% static 'images/portfolio/mch.webp' %}" class="img-fluid" alt="this is a title" width="500" height="500">
+        <div class="overlay">
+          <div class="buttons">
+            <a rel="gallery" class="fancybox" href="{% url 'calculadora' %}">Demo</a>
+            <a target="_blank" href="https://github.com/gbavieira/Hidreo">GitHub</a>
+          </div>
+        </div>
+      </div>
+      <figcaption>
+        <h4>
+          <a href="{% url 'calculadora' %}">
+            Calculadora Hidreo
+          </a>
+        </h4>
+        <p>
+          Hydric Power Potential Calculator for Hidreo energy solutions website
+        </p>
+      </figcaption>
+    </figure>
+  </div>
+  <div class="col-md-4 col-sm-6">
+    <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="300ms">
+      <div class="img-wrapper">
+        <img src="{% static 'images/portfolio/recipe.png' %}" class="img-fluid" alt="this is a title" width="500" height="500" >
+        <div class="overlay">
+          <div class="buttons">
+            <a rel="gallery" class="fancybox" href="{% url 'receitas' %}">Demo</a>
+            <a target="_blank" href="https://github.com/gbavieira/Projeto-Alura-Receita">GitHub</a>
+          </div>
+        </div>
+      </div>
+      <figcaption>
+        <h4>
+          <a href="#">
+            Alura Receitas
+          </a>
+        </h4>
+        <p>
+          Website for recipes from Alura Django course.
+        </p>
+      </figcaption>
+    </figure>
+  </div>
+</div>
+    

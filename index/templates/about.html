@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include 'partials/_header.html' %}
+        <!-- 
+        ================================================== 
+            Global Page Section Start
+        ================================================== -->
+        <section class="global-page-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="block">
+                            <h2>About Me</h2>
+                            <ol class="breadcrumb list-inline text-center">
+                                <li class="list-inline-item">
+                                    <a href="{% url 'index' %}">
+                                        <i class="ion-ios-home"></i>
+                                        Home  &nbsp; &nbsp;/
+                                    </a>
+                                </li>
+                                <li class="active list-inline-item">About</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!-- 
+================================================== 
+    Company Description Section Start
+================================================== -->
+<section class="company-description">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 wow fadeInLeft" data-wow-delay=".3s">
+        <img src="{% static 'images/about/eu.png' %}" alt="" class="img-fluid">
+      </div>
+      <div class="col-md-6">
+        <div class="block">
+          <h3 class="subtitle wow fadeInUp" data-wow-delay=".3s" data-wow-duration="500ms">A little bit about my background</h3>
+          <p class="wow fadeInUp" data-wow-delay=".5s" data-wow-duration="500ms">
+            I was born in Rio de Janeiro, Brazil. I have moved from Rio when I was still a baby and my endless moving cycle started. Between 1 and 29 years old I have lived in 7 different cities around the world. Norway and Australia
+            were the two different countries I have made an exchange. Today I live in João Pessoa, a northeast city in Brazil. Environmental engieerning was the subject I chose to study when I went for the Fededral University of Viçosa and I 
+            currently hold a bachelor's diploma. Despite the degree, my first job was to work with sales and, at the beginning, I liked it a lot, since I'm a very extrovert person and really easygoing. I've spent 4 years of my life working in this area,
+            until I decided that sales was ok, but not what I really loved doing. 
+          </p>
+          <p class="wow fadeInUp" data-wow-delay=".7s" data-wow-duration="500ms">
+            Helping others is where my passion is, and I decided to make a change in my life by helping others with technology and software development. Why not to get together my passion
+            with my hobbies? I started on some basic Python courses, which introduced me to Django. From January 2022 I started to study very hard on this framework, how to deploy using Docker and AWS. Now I'm looking for my first opportunity of working with
+            software or web development.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 
+================================================== 
+    My Features Section Start
+================================================== -->
+<section class="about-feature clearfix">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-4 px-0">
+        <div class="block about-feature-1 wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".3s">
+          <h2>
+            Why Choose Me
+          </h2>
+          <p>
+            I have a vast experience with helping people. I'm a teamworker and I always bring my teammates up! I have experience with web development as well as using Docker and AWS for deploy. This current website is done with Django Framework
+            and is hosted in AWS EC2 with Docker. I'm a really fast learner and a remarkable determined person. I know the basics of data science as well.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-4 px-0">
+        <div class="block about-feature-2 wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".5s">
+          <h2 class="skills">
+            Skills
+          </h2>
+          <p>
+            <div class="column">
+              - Web development;<br>
+              - Django and REST Framework<br>
+              - Very good communication<br>
+              - Teamplayer <br>
+            </div>
+            <div class="column">
+              - Deploy with AWS  <br>
+              - Docker experience  <br>
+              - Pandas and R for Data Science<br>
+              - Fast learner <br>
+            </div>
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-4 px-0">
+        <div class="block about-feature-3 wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".7s">
+          <h2 class="item_title">
+            My Hobbies
+          </h2>
+          <p>
+            I love being with friends chatting and having some casual beer. Palmeiras, a brazilian football(soccer) team, is always in my mind and wherever I am, I love to watch it playing. Biking in some dirt tracks and exercising is also something
+            I do often. Fantasy movies and books are among my favourites. At last but not least, I am a Dungeon Master for my friends in some tabletop RPGs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 
+================================================== 
+    Me Section
+================================================== -->
+<section id="team">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 class="subtitle text-center">That's me</h2>
+      </div>
+      <div class="col-md-3 col-sm-6" style="margin:0 auto;">
+        <div class="team-member wow fadeInLeft" data-wow-duration="500ms" data-wow-delay=".3s">
+          <div class="team-img">
+            <img src="{% static 'images/about/gabriel.jpg' %}" class="team-pic" alt="">
+          </div>
+          <h3 class="team_name">Gabriel Vieira</h3>
+          <p class="team_designation">Developer</p>
+          <p class="team_text">Currently studying AWS, REST API and Docker </p>
+          <p class="social-icons">
+            <a href="https://www.facebook.com/gabriel.borda.5" class="facebook" target="_blank"><i class="ion-social-facebook-outline"></i></a>
+            <!-- <a href="#" target="_blank"><i class="ion-social-twitter-outline"></i></a> -->
+            <a href="https://www.instagram.com/gba.vieira/" target="_blank"><i class="ion-social-linkedin-outline"></i></a>
+            <a href="https://www.linkedin.com/in/gabriel-vieira-b1224843/" target="_blank"><i class="ion-social-instagram-outline"></i></a>
+            <a href="https://github.com/gbavieira" target="_blank"><i class="ion-social-github-outline"></i></a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 
+        ================================================== 
+            Clients Section Start
+        ================================================== -->
+<section id="clients">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="subtitle text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay=".3s">My projects</h2>
+                <p class="subtitle-des text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay=".5s">Check the Demo or in GitHub</p>
+                {% include 'partials/_portfolio.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include 'partials/_footer.html' %}
+{% endblock %}         
