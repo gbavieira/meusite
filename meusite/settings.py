@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'index',
     'basica',
     'avancada',
+    'widget_tweaks',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -125,7 +126,7 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'meusite\static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'meusite/static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -135,3 +136,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # PROJECT_ROOT = os.path.dirname(__file__)
 # sys.path.insert(0, os.path.join(PROJECT_ROOT, '../apps'))
 # sys.path.insert(0, os.path.join(PROJECT_ROOT, '../apps/calculadora'))
+
+CSRF_TRUSTED_ORIGINS=['http://3.93.186.25/']
+CSRF_COOKIE_SECURE=False

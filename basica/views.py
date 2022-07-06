@@ -26,15 +26,19 @@ def basica (request):
             messages.error(request, 'Todos os campos são obrigatórios e não podem ficar em branco!')
             return redirect('basica_forms')
 
-        lead = LeadBasica.objects.create(nome=nome,desnivel=desnivel, vazao=vazao,potencia=potencia,mchs=mchs,telefone=request.POST['telefone'],cpf_cnpj=request.POST['cpf_cnpj'],concessionaria=request.POST['concessionaria'],email=request.POST['email'],modelo=request.POST['modelo'],data=request.POST['data'],)
+        lead = LeadBasica.objects.create(nome=nome,desnivel=desnivel, vazao=vazao,potencia=potencia,mchs=mchs,telefone=request.POST['telefone'],cpf_cnpj=request.POST['cpf_cnpj'],concessionaria=request.POST['concessionaria'],email=request.POST['email'],modelo=request.POST['modelo'],)
         lead.save()
 
-        dados = {'form':form,'potencia':potencia,'mchs':mchs,}
+        dados = {
+            'form':form,
+            'potencia':potencia,
+            'mchs':mchs,
+        }
         return redirect('basica/resultado', dados)
 
     else:
         form = LeadBasicaForms()
-        dados = {'form':form,}
+        dados = {'form':form, }
         return render(request,'basica_forms.html', dados)
     
 def basica_resultado (request):

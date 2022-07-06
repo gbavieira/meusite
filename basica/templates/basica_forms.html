@@ -1,33 +1,45 @@
 {% extends "base.html" %}
 {% block content %}
 
-{% include 'partials/_menu.html' %}
+{% include 'partials/_header_calculadora.html' %}
+{% load widget_tweaks %}
 
-<section class="head-basic">
-    <header>
-        <h1 class="border-gradient" id="box">
-            Calculadora HIDREO <br> Básica
-        </h1>
-    </header>
-</section>
 
-<section class='container col-6'>
-    <form action="{% url 'basica' %}" method="post">
-        {% csrf_token %}
-        {% for field in form.visible_fields %}
-        <div class="form-group">
-            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-            {{field}}
+
+<section id="basica">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <div class="block wow fadeInUp" data-wow-delay=".3s">
+            <!-- Slider -->
+            <section class="cd-intro">
+              <h1 class="wow fadeInUp animated cd-headline slide" data-wow-delay=".4s">
+                <span>Calculadora HIDREO Básica</span><br>
+              </h1>
+            </section> <!-- cd-intro -->
+            <!-- /.slider -->
+            <h2 class="wow fadeInUp animated" data-wow-delay=".6s">
+                <form action="{% url 'basica' %}" method="post">
+                    {% csrf_token %}
+                    {% for field in form.visible_fields %}
+                    <div class="form-group">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{field|add_class:'form-control'}}
+                    </div>
+                    {% for error in field.errors %}
+                    <section class="alert alert-danger" role="alert">
+                        {{ field.errors }}
+                    </section>
+                    {% endfor %}
+                    {% endfor %}
+                </form>
+                <input type="submit" value="Calcular" class='btn btn-success'>
+            </h2>
+          </div>
         </div>
-        
-        {% for error in field.errors %}
-        <section class="alert alert-danger" role="alert">
-            {{ field.errors }}
-        </section>
-        {% endfor %}
-        {% endfor %}
-        <input type="submit" value="Calcular" class='btn btn-success'>
-    </form>
+      </div>
+    </div>
 </section>
 
+{% include 'partials/_footer_calculadora.html' %}
 {% endblock %}

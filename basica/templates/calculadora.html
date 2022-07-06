@@ -2,50 +2,82 @@
 {% load static %}
 {% block content %}
 
-{% include 'partials/_menu.html' %}
+{% include 'partials/_header_calculadora.html' %}
 
-<section class="head">
-    <header>
-        <h1 class="border-gradient" id="box">
-            Calculadora HIDREO
-        </h1>
-    </header>
-</section>
-
-<section class="info">
-    <div>
-        <h3 class="text1"> Seja bem-vindo a Calculadora de Potencial Hídrico da Hidreo <img class="calculadora" src="https://fretecomlucro.com.br/wp-content/uploads/Grupo-231.svg" alt="Calculadora"></h3>
+<section id="hero-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <div class="block wow fadeInUp" data-wow-delay=".3s">
+  
+            <!-- Slider -->
+            <section class="cd-intro">
+              <h1 class="wow fadeInUp animated cd-headline slide" data-wow-delay=".4s">
+                <span>SEJA BEM VINDO A CALCULADORA DE POTENCIAL HÍDRICO DA HIDREO ENERGY SOLUTIONS</span><br>
+              </h1>
+            </section> <!-- cd-intro -->
+            <!-- /.slider -->
+            <h2 class="wow fadeInUp animated" data-wow-delay=".6s">
+                <br>
+                <br>
+              Aqui você simula o quanto de energia você pode gerar com seu rio!<br> 
+              Você também pode simular o quanto de economia mensal terá comprando sua MCH.<br>
+              Utilize a calculadora básica para uma simulação rápida e mais simples.<br>
+              A calculadora avançada ajuda sua simulação a ficar mais próxima da sua geração real!
+            </h2>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
-<section class="presentation-text">
-
-    <div class="text-buttons">
-        <h1 class="text-calculators">Calculadoras</h1>
-        <h3> Escolha qual calculadora você quer utilizar</h3>
+<section id="works" class="works">
+    <div class="container">
+      <div class="section-heading">
+        <h1 class="title wow fadeInDown" data-wow-delay=".3s">Escolha qual calculadora você quer utilizar</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <figure class="wow fadeInLeft animated portfolio-item" data-wow-duration="500ms" data-wow-delay="0ms">
+            <figcaption>
+              <h4>
+                <a href="{% url 'basica' %}">
+                  Básica
+                </a>
+              </h4>
+              <p>
+                Dados necessários:<br>
+                Vazão e Desnível<br>
+                <br>
+              </p>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-md-6 col-sm-6">
+          <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="300ms">
+            <div class="img-wrapper">
+              <div class="overlay">
+                <div class="buttons">
+                  <a rel="gallery" class="fancybox" href="{% url 'avancada' %}">AVANÇADA</a>
+                </div>
+              </div>
+            </div>
+            <figcaption>
+              <h4>
+                <a href="{% url 'avancada' %}">
+                  Avançada
+                </a>
+              </h4>
+              <p>
+                Dados necessários:<br>
+                Vazão, Desnível, Distância Elétrica, Distância Hidráulica, Modelo, <br>Tipo de Cabo Elétrico
+              </p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
     </div>
+  </section>
 
-</section>
-
-<section class="buttons">
-
-    <h3>Na calculadora BÁSICA você obtém o potencial do seu rio</h3>
-
-    <div class="basic-button">
-        <button type="button" class="btn btn-primary"><a href="{% url 'basica' %}">Básica</a></button>
-        <img src="https://play-lh.googleusercontent.com/POgn4x_Jrz18VxrjbZC88ijwZJwmOjs2flX1KC0Kz7IF1oncFoKOMsWfFKntJjc20BRJ" alt="basic-calculator" width="240px">
-    </div>
-
-
-    <h3>Na calculadora AVANÇADA você personaliza sua instalação</h3>
-
-    <div class="basic-button">
-        <button type="button" class="btn btn-primary"><a href="{% url 'avancada' %}">Avançada</a></button>
-        <img src="" alt="basic-calculator" width="240px">
-    </div>
-
-</section>
-
-
-    {% include 'partials/_footer.html' %}
+    {% include 'partials/_footer_calculadora.html' %}
 {% endblock %}

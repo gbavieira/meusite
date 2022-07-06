@@ -1,15 +1,21 @@
 from django import forms
 from .validation import *
 from .models import LeadBasica
+from datetime import datetime
+
+CHOICES = [('on grid', 'On Grid'),('off grid', 'Off Grid')]
 
 class LeadBasicaForms (forms.ModelForm):
+    modelo = forms.ChoiceField(widget=forms.RadioSelect, choices=CHOICES)
+    data = forms.DateField(label='Data da Pesquisa', disabled=True, initial=datetime.today)
     class Meta:
         model = LeadBasica
         fields = '__all__'
-        labels = {}
+        labels = {'vazao':'Vazão','desnivel':'Desnível','cpf_cnpj':'CPF ou CNPJ','concessionaria':'Concessionária','email':'E-mail'}
         widgets = {
             'potencia': forms.HiddenInput(),
             'mchs': forms.HiddenInput(),
+            'data':forms.HiddenInput(),
         }
 
     def clean(self):
