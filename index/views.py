@@ -9,5 +9,4 @@ def about(request):
 def service(request):
     return render (request, 'service.html')
 
-def projects(request):
-    return render (request, 'projects.html')
+

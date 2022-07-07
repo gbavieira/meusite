@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'index',
     'basica',
     'avancada',
+    'alurareceita',
     'widget_tweaks',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -139,3 +140,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS=['http://3.93.186.25/']
 CSRF_COOKIE_SECURE=False
+
+MEDIA_ROOT = os.path.join (BASE_DIR, 'alurareceita/media')
+MEDIA_URL = '/media/'
+
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+    messages.SUCCESS: 'success',
+}

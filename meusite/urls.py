@@ -7,6 +7,6 @@ urlpatterns = [
     path('',include('index.urls')),
     path('calculadora/',include('basica.urls')),
     path('calculadora/avancada/',include('avancada.urls')),
-    # path('receitas/',include('receitas.urls')),
+    path('alurareceita/',include('alurareceita.urls')),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
