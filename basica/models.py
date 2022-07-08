@@ -12,6 +12,5 @@ class LeadBasica(models.Model):
     modelo = models.CharField(max_length = 20)
     potencia = models.IntegerField()
     mchs = models.IntegerField()
-    data = models.DateTimeField(default=datetime.now, blank=True)
     def __str__(self):
         return self.nome

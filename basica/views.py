@@ -8,9 +8,10 @@ import math
 def calculadora(request):
     return render(request,'calculadora.html')
 
-def basica (request):
-    form = LeadBasicaForms()
+
+def basica(request):
     if request.method == 'POST':
+        print('2')
         form = LeadBasicaForms(request.POST)
         nome = request.POST['nome']
         desnivel = math.floor(int(float(request.POST['desnivel'])))
@@ -26,23 +27,31 @@ def basica (request):
             messages.error(request, 'Todos os campos são obrigatórios e não podem ficar em branco!')
             return redirect('basica_forms')
 
-        lead = LeadBasica.objects.create(nome=nome,desnivel=desnivel, vazao=vazao,potencia=potencia,mchs=mchs,telefone=request.POST['telefone'],cpf_cnpj=request.POST['cpf_cnpj'],concessionaria=request.POST['concessionaria'],email=request.POST['email'],modelo=request.POST['modelo'],)
-        lead.save()
-
-        dados = {
-            'form':form,
-            'potencia':potencia,
-            'mchs':mchs,
-        }
-        return redirect('basica/resultado', dados)
-
+        if form.is_valid():
+            lead = LeadBasica.objects.create(nome=nome,desnivel=desnivel, vazao=vazao,potencia=potencia,mchs=mchs,telefone=request.POST['telefone'],cpf_cnpj=request.POST['cpf_cnpj'],concessionaria=request.POST['concessionaria'],email=request.POST['email'],modelo=request.POST['modelo'],)
+            lead.save()
+            print('3')
+            dados = {
+                'form':form,
+                'potencia':potencia,
+                'mchs':mchs,
+            }
+            return render(request,'basica_resultado.html', dados)
+        else:
+            print('Form inválido')
+            print (form.errors)
+            dados = {'form':form,}
+            return render(request, 'basica_forms.html', dados)
     else:
         form = LeadBasicaForms()
         dados = {'form':form, }
         return render(request,'basica_forms.html', dados)
+
+
     
 def basica_resultado (request):
-    if request.method == 'GET':
+    if request.method == 'POST':
+        print('4')
         nome = LeadBasica.objects.latest('id')
         desnivel = LeadBasica.objects.latest('desnivel')
         vazao = LeadBasica.objects.latest('vazao')
@@ -51,7 +60,6 @@ def basica_resultado (request):
         concessionaria = LeadBasica.objects.latest('concessionaria')
         email = LeadBasica.objects.latest('email')
         modelo = LeadBasica.objects.latest('modelo')
-        data = LeadBasica.objects.latest('data')
 
         dados = {
             'nome':nome,
@@ -62,7 +70,7 @@ def basica_resultado (request):
             'concessionaria':concessionaria,
             'email':email,
             'modelo':modelo,
-            'data':data,
         }
 
         return render(request,'basica_resultado.html', dados)
+

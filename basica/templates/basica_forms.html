@@ -14,14 +14,14 @@
             <!-- Slider -->
             <section class="cd-intro">
               <h1 class="wow fadeInUp animated cd-headline slide" data-wow-delay=".4s">
-                <span>Calculadora HIDREO Básica</span><br>
+                <span>Calculadora HIDREO Básica</span><br>&ensp;<br>
               </h1>
             </section> <!-- cd-intro -->
             <!-- /.slider -->
             <h2 class="wow fadeInUp animated" data-wow-delay=".6s">
-                <form action="{% url 'basica' %}" method="post">
+                <form action="{% url 'basica' %}" role="form" method="post" enctype= multipart/form-data>
                     {% csrf_token %}
-                    {% for field in form.visible_fields %}
+                    {% for field in form_avancada.visible_fields %}
                     <div class="form-group">
                         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                         {{field|add_class:'form-control'}}
@@ -32,8 +32,8 @@
                     </section>
                     {% endfor %}
                     {% endfor %}
+                    <input type="submit" value="Calcular" class='btn btn-success'>
                 </form>
-                <input type="submit" value="Calcular" class='btn btn-success'>
             </h2>
           </div>
         </div>

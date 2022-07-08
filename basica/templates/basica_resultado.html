@@ -1,31 +1,51 @@
 {% extends "base.html" %}
 {% block content %}
-
 {% include 'partials/_header_calculadora.html' %}
+
+
+<section id="basica_resultado">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="block wow fadeInUp" data-wow-delay=".3s">
+          <!-- Slider -->
+          <section class="cd-intro">
+            <h1 class="wow fadeInUp animated cd-headline slide" data-wow-delay=".4s">
+              <span>Resultado da Calculadora Básica:</span><br>&ensp;<br>
+            </h1>
+          </section> <!-- cd-intro -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
 
 <section>
 <table>
   <div>
     Nome:
-    {{ nome.nome }} <br>
+    {{ form.nome.value }} <br>
 
     Desnível:
-    {{ desnivel.desnivel }} m<br>
+    {{ form.desnivel.value }} m<br>
 
     Vazão:
-    {{ vazao.vazao }} L/s<br>
+    {{ form.vazao.value }} L/s<br>
 
-    Quantidade de MCHs: {{ mchs.mchs }} <br>
+    Quantidade de MCHs: {{ mchs }} <br>
 
-    Quantidade de Potência: {{ potencia.potencia }} W <br>
+    Quantidade de Potência: {{ potencia }} W <br>
 
-    Concessionária: {{ concessionaria.concessionaria }}<br>
+    Concessionária: {{ form.concessionaria.value }}<br>
 
-    E-mail: {{ email.email }} <br>
+    E-mail: {{ form.email.value }} <br>
 
-    Modelo: {{ modelo.modelo }}<br>
-
-    Data da pesquisa: {{ data.data }}<br>
+    Modelo: {{ form.modelo.value }}<br>
 
 </table>
 </section>

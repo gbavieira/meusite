@@ -38,41 +38,49 @@
       </div>
       <div class="row">
         <div class="col-md-6 col-sm-6">
-          <figure class="wow fadeInLeft animated portfolio-item" data-wow-duration="500ms" data-wow-delay="0ms">
-            <figcaption>
-              <h4>
-                <a href="{% url 'basica' %}">
-                  Básica
-                </a>
-              </h4>
-              <p>
-                Dados necessários:<br>
-                Vazão e Desnível<br>
-                <br>
-              </p>
-            </figcaption>
+          <figure class="" data-wow-duration="500ms" data-wow-delay="300ms">
+            <div class="img-wrapper">
+              <figcaption>
+                <h4>
+                  <a href="{% url 'basica' %}">
+                    Básica
+                  </a>
+                </h4>
+                <h5>
+                  Dados necessários:<br>&ensp;<br>
+                  Vazão<br> Desnível<br>
+                  <br>
+                </h5>
+                <div class="overlay">
+                  <div class="buttons">
+                    <a rel="gallery" class="fancybox" href="{% url 'basica' %}">BÁSICA</a>
+                  </div>
+                </div>
+              </figcaption>
+            </div>
           </figure>
         </div>
         <div class="col-md-6 col-sm-6">
-          <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="300ms">
+          <figure class="" data-wow-duration="500ms" data-wow-delay="300ms">
             <div class="img-wrapper">
+              <figcaption>
+                <h4>
+                  <a href="{% url 'avancada' %}">
+                    Avançada
+                  </a>
+                </h4>
+                <h5>
+                  Dados necessários:<br> &ensp;
+                  <br>
+                  Vazão<br> Desnível<br> Distância Elétrica<br> Distância Hidráulica<br> Modelo<br>Tipo de Cabo Elétrico
+                </h5>
+              </figcaption>
               <div class="overlay">
                 <div class="buttons">
                   <a rel="gallery" class="fancybox" href="{% url 'avancada' %}">AVANÇADA</a>
                 </div>
               </div>
             </div>
-            <figcaption>
-              <h4>
-                <a href="{% url 'avancada' %}">
-                  Avançada
-                </a>
-              </h4>
-              <p>
-                Dados necessários:<br>
-                Vazão, Desnível, Distância Elétrica, Distância Hidráulica, Modelo, <br>Tipo de Cabo Elétrico
-              </p>
-            </figcaption>
           </figure>
         </div>
       </div>
