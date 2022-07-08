@@ -75,12 +75,12 @@ def dashboard(request):
         }
         return render(request,'usuarios/dashboard.html', dados)
     else:
-        return redirect('index')
+        return redirect('index_receita')
 
 def logout(request):
     """Realiza o logout do usuário"""
     auth.logout(request)
-    return redirect('index')
+    return redirect('index_receita')
 
 def campo_vazio(campo):
     """função para verificação de campos vazios no site"""
@@ -175,3 +175,16 @@ def atualiza_receita(request):
 
 def campo_vazio(campo):
     return not campo.strip()
+
+def publicar(request, receita_id):
+    receita = get_object_or_404(Receita, pk=receita_id)
+    if receita.publicada == False:
+        receita.publicada = True
+        receita.save()
+        print (receita.publicada)
+        return redirect('index_receita')
+    else:
+        receita.publicada = False
+        receita.save()
+        print (receita.publicada)
+        return redirect('index_receita')

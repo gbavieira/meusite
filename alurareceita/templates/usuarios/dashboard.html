@@ -42,6 +42,11 @@
                                 <h5>{{ receita.nome_receita }}</h5>
                                 <a href="{% url 'deleta_receita' receita.id %}" type="button" class="btn btn-danger">Deletar</a>
                                 <a href="{% url 'edita_receita' receita.id %}" type="button" class="btn btn-info">Editar</a>
+                                {% if receita.publicada == True %}
+                                    <a href="{% url 'publicar' receita.id %}" type="button" class="btn btn-success">Despublicar</a>
+                                {% else %}
+                                    <a href="{% url 'publicar' receita.id %}" type="button" class="btn btn-success">Publicar</a>
+                                {% endif %}
                         </div>
                     </div>
                 </div>
