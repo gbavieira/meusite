@@ -27,7 +27,7 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -35,9 +35,9 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'index',
     'basica',
-    'avancada',
     'alurareceita',
     'widget_tweaks',
+    'django_hosts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django_hosts.middleware.HostsRequestMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -54,9 +55,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_hosts.middleware.HostsResponseMiddleware',
 ]
 
 ROOT_URLCONF = 'meusite.urls'
+ROOT_HOSTCONF = 'meusite.hosts'
+DEFAULT_HOST = 'meusite'
 
 TEMPLATES = [
     {
@@ -82,11 +86,12 @@ WSGI_APPLICATION = 'meusite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': config('DB_NAME'),
         'USER': config('DB_USER'),
         'PASSWORD': config('DB_PASSWORD'),
         'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT')
     }
 }
 
@@ -134,24 +139,26 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'meusite/static')]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# PROJECT_ROOT = os.path.dirname(__file__)
-# sys.path.insert(0, os.path.join(PROJECT_ROOT, '../apps'))
-# sys.path.insert(0, os.path.join(PROJECT_ROOT, '../apps/calculadora'))
-
+#CSRF validations
 CSRF_TRUSTED_ORIGINS=['http://3.93.186.25/']
-CSRF_COOKIE_SECURE=False
 
+#Media
 MEDIA_ROOT = os.path.join (BASE_DIR, 'alurareceita/media')
 MEDIA_URL = '/media/'
 
+#Bootstrap messages
 from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
     messages.SUCCESS: 'success',
 }
 
+#AWS SES service config
 EMAIL_BACKEND = 'django_ses.SESBackend'
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
 AWS_SES_REGION_NAME = 'us-east-1' #(ex: us-east-2)
 AWS_SES_REGION_ENDPOINT = 'email.us-east-1.amazonaws.com' #(ex: email.us-east-2.amazonaws.com)
+
+#SUBDOMAINS
+

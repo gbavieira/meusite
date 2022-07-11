@@ -1,4 +1,5 @@
 {% load static %}
+{% load hosts %}
 <!--
 ==================================================
 Portfolio Section Start
@@ -11,14 +12,14 @@ Portfolio Section Start
         <img src="{% static 'images/portfolio/mch.webp' %}" class="img-fluid" alt="this is a title" width="500" height="500">
         <div class="overlay">
           <div class="buttons">
-            <a target="_blank" href="{% url 'calculadora' %}">Demo</a>
+            <a target="_blank" href="{% host_url 'calculadora' host 'calculadorahidreo' %}">Demo</a>
             <a target="_blank" href="https://github.com/gbavieira/Hidreo">GitHub</a>
           </div>
         </div>
       </div>
       <figcaption>
         <h4>
-          <a href="{% url 'calculadora' %}">
+          <a href="{% host_url 'calculadora' host 'calculadorahidreo' %}">
             Calculadora Hidreo
           </a>
         </h4>
@@ -34,14 +35,14 @@ Portfolio Section Start
         <img src="{% static 'images/portfolio/recipe.png' %}" class="img-fluid" alt="this is a title" width="500" height="500" >
         <div class="overlay">
           <div class="buttons">
-            <a target="_blank" href="{% url 'index_receita' %}">Demo</a>
+            <a target="_blank" href="{% host_url 'index_receita' host 'alurareceita' %}">Demo</a>
             <a target="_blank" href="https://github.com/gbavieira/Projeto-Alura-Receita">GitHub</a>
           </div>
         </div>
       </div>
       <figcaption>
         <h4>
-          <a href="#">
+          <a href="{% host_url 'index_receita' host 'alurareceita' %}">
             Alura Receitas
           </a>
         </h4>

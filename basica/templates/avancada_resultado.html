@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+{%load static %}
+{% include 'partials/_header_calculadora.html' %}
+
+<section id="resultado">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="block wow fadeInUp" data-wow-delay=".3s">
+          <!-- Slider -->
+          <section class="cd-intro">
+            <h1 class="wow fadeInUp animated cd-headline slide" data-wow-delay=".4s">
+              <span>Resultado da Calculadora Básica:</span><br>
+            </h1>
+          </section> <!-- cd-intro -->
+          <!-- /.slider -->
+          <div class="resultado">
+            <h2 class="wow fadeInUp animated" data-wow-delay=".6s">
+              <p>
+                <h2 style="font-size:xx-large;" bold="bold">DADOS DO CLIENTE</h2>
+                <p class="resultado">Nome: {{ form_avancada.nome.value }} </p>
+                <p class="resultado">E-mail: {{ form_avancada.email.value }} </p>
+                <p class="resultado">Concessionária: {{ form_avancada.concessionaria.value }}</p>
+                <br>
+                <h2 style="font-size:xx-large;" bold="bold">DADOS INFORMADOS</h2>
+                <p class="resultado">Desnível: {{ form_avancada.desnivel.value }} m</p>
+                <p class="resultado">Distância Hidráulica: {{ form_avancada.dist_hidr.value }} m</p>
+                <p class="resultado">Distância Elétrica: {{ form_avancada.dist_eletr.value }} m</p>
+                <p class="resultado">Tipo de Cabo Selecionado: {{ form_avancada.tipo_cabo.value }}</p>
+                <p class="resultado">Modelo Selecionado: {{ form_avancada.modelo.value }}</p>
+                <br>
+                <h2 style="font-size:xx-large;" bold="bold">DADOS HIDRÁULICOS</h2>
+                <p class="resultado">Diâmetro Econômico: {{ diametro_econ }} mm</p>
+                <p class="resultado">Diâmetro Comercial: {{ diametro_comercial }} mm</p>
+                <p class="resultado">Velocidade do Escoamento: {{ vel_escoamento }} m/s</p>
+                <p class="resultado">Perda de Carga Unitária: {{ perda_carga_unit }} m</p>
+                <p class="resultado">Perda de Carga na Tubulação: {{ perda_carga_tub }} m</p>
+                <p class="resultado">Perda de Carga Total: {{ perda_carga_conex_total }} m</p>
+                <p class="resultado">Desnível Útil: {{ desnivel_real }} m</p>
+                <p class="resultado">Porcentagem da Perda: {{ porcentagem_perda }}</p>
+                <br>
+                <h2 style="font-size:xx-large;" bold="bold">DADOS ELÉTRICOS</h2>
+                <p class="resultado">Bitola Recomendada: {{bitola_real}} mm²</p>
+                <br>
+                <p class="resultado">Quantidade de MCHs Sugeridas: {{ mchs }} </p>
+                <p class="resultado">Quantidade de Potência: {{pot_util}} W</p>
+              </p>
+            </h2>
+          </div>
+          {% include 'partials/_botoes.html' %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+{% include 'partials/_footer_calculadora.html' %}
+{% endblock %}
