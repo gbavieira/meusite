@@ -4,8 +4,6 @@
 {% include 'partials/_header_calculadora.html' %}
 {% load widget_tweaks %}
 
-
-
 <section id="basica">
     <div class="container">
       <div class="row">
@@ -21,7 +19,7 @@
             <h2 class="wow fadeInUp animated" data-wow-delay=".6s">
                 <form action="{% url 'basica' %}" role="form" method="post" enctype= multipart/form-data>
                     {% csrf_token %}
-                    {% for field in form_avancada.visible_fields %}
+                    {% for field in form.visible_fields %}
                     <div class="form-group">
                         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                         {{field|add_class:'form-control'}}
@@ -32,7 +30,8 @@
                     </section>
                     {% endfor %}
                     {% endfor %}
-                    <input type="submit" value="Calcular" class='btn btn-success'>
+                    &ensp;<br>
+                    <input type="submit" value="Calcular" class='calcular-btn btn-success btn-lg'>
                 </form>
             </h2>
           </div>

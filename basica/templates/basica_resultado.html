@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
+{%load static %}
 {% include 'partials/_header_calculadora.html' %}
 
-
-<section id="basica_resultado">
+<section id="resultado">
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center">
@@ -11,9 +11,44 @@
           <!-- Slider -->
           <section class="cd-intro">
             <h1 class="wow fadeInUp animated cd-headline slide" data-wow-delay=".4s">
-              <span>Resultado da Calculadora Básica:</span><br>&ensp;<br>
+              <span>Resultado da Calculadora Básica:</span><br>
             </h1>
           </section> <!-- cd-intro -->
+          <!-- /.slider -->
+          <div class="resultado">
+            <h2 class="wow fadeInUp animated" data-wow-delay=".6s">
+              <p>
+                <h2 style="font-size:xx-large;" bold="bold">DADOS DO CLIENTE</h2>
+                <p class="resultado">Nome: {{ form.nome.value }} </p>
+                <p class="resultado">E-mail: {{ form.email.value }} </p>
+                <p class="resultado">Concessionária: {{ form.concessionaria.value }}</p>
+                <br>
+                <h2 style="font-size:xx-large;" bold="bold">DADOS DO CÁLCULO</h2>
+                <p class="resultado">Desnível: {{ form.desnivel.value }} m</p>
+                <p class="resultado">Vazão: {{ form.vazao.value }} L/s</p>
+                <p class="resultado">Quantidade de Potência: {{ potencia }} W </p>
+                <p class="resultado">Quantidade de MCHs Sugeridas: {{ mchs }} </p>
+                <p class="resultado">Modelo Selecionado: {{ form.modelo.value }}</p>
+              </p>
+            </h2>
+          </div>
+          <section id="feature">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6 col-lg-4">
+                  <div class="media wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <div class="media-left">
+                      <img src="{% static 'images/logo-hidreo.png' %}" class="'logo-hidreo" alt="logo-hidreo" width="200">
+                    </div>
+                      <a href="https://hidreo.com.br/" type="button" class="btn btn-primary">HOME</a>&nbsp;&nbsp;&nbsp;
+                      <a href="{% url 'basica' %}" type="button" class="btn btn-primary">CALCULAR NOVAMENTE</a>&nbsp;&nbsp;&nbsp;
+                      <a href="{% url 'avancada' %}" type="button" class="btn btn-primary">CALCULADORA AVANÇADA</a>&nbsp;&nbsp;&nbsp;
+                      <a class="btn btn-primary btn-lg" href="https://api.whatsapp.com/send?phone=5541988887278&text=Ol%c3%a1%2c+quero+comprar+uma+MCH+%7c+Micro+Central+Hidrel%c3%a9trica.+Voc%c3%aa+pode+me+ajudar%3f">QUERO COMPRAR</a><br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </div>
@@ -22,40 +57,6 @@
 
 
 
-
-
-
-<section>
-<table>
-  <div>
-    Nome:
-    {{ form.nome.value }} <br>
-
-    Desnível:
-    {{ form.desnivel.value }} m<br>
-
-    Vazão:
-    {{ form.vazao.value }} L/s<br>
-
-    Quantidade de MCHs: {{ mchs }} <br>
-
-    Quantidade de Potência: {{ potencia }} W <br>
-
-    Concessionária: {{ form.concessionaria.value }}<br>
-
-    E-mail: {{ form.email.value }} <br>
-
-    Modelo: {{ form.modelo.value }}<br>
-
-</table>
-</section>
-
-<section>
-  <a href="{% url 'index' %}" class='btn btn-info' role="button">Voltar Para o Início</a>
-  <a href="https://hidreo.com.br/" class='btn btn-info' role="button">Voltar Para o Site</a>
-  <a href="{% url 'basica' %}" class='btn btn-info' role="button">Calcularadora Básica</a>
-  <a href="{% url 'avancada' %}" class='btn btn-info' role="button">Calcularadora Avançada</a>
-</section>
 
 
 {% include 'partials/_footer_calculadora.html' %}

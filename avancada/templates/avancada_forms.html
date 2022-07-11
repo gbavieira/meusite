@@ -22,9 +22,8 @@
                     {% for field in form_avancada.visible_fields %}
                     <div class="form-group">
                         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                        {{field}}
+                        {{field|add_class:'form-control'}}
                     </div>
-                    
                     {% for error in field.errors %}
                     <section class="alert alert-danger" role="alert">
                         {{ field.errors }}

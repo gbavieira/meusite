@@ -678,7 +678,9 @@ textarea:focus {
   position: relative;
   z-index: 1; }
   .single-best-receipe-area img {
-    border-bottom: 3px solid #40ba37; }
+    border-bottom: 3px solid #40ba37;
+    height: 250px;
+    width: 300px;}
   .single-best-receipe-area .receipe-content {
     padding-top: 30px;
     text-align: center; }

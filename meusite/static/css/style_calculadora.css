@@ -88,6 +88,7 @@
 
 .btn {
     display: inline-block;
+    align-self: center;
     font-weight: 400;
     text-align: center;
     white-space: nowrap;
@@ -271,4 +272,76 @@ figure img {
   line-height: 1.1;
   margin: auto;
   width: 60%;
+}
+
+#resultado {
+  background: url("../images/iguacu.avif") no-repeat 50%;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 230px 0;
+  color: #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+#resultado:before {
+  content: "";
+  z-index: 9;
+  background: rgba(137, 158, 183, 0.68);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#resultado .block {
+  position: relative;
+  z-index: 9;
+}
+#resultado h1 {
+  font-size: 40px;
+  line-height: 50px;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px black;
+}
+#resultado h2 {
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 38px;
+  line-height: 27px;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  margin-top: 25px;
+  text-shadow: 0 0 20px black;
+}
+
+.calcular-btn {
+  font-size: larger;
+}
+div.resultado {
+  padding-left: 150px;
+  text-transform: uppercase;
+  text-align: left;
+  font-size: large;
+  margin: 8px 200px;
+  border: 1px solid #244782;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 70%;
+  background-color: rgba(36, 71, 130, 0.8);
+}
+
+p.resultado{
+  margin-left: -100px;
+  border: 1px solid #ffffff;
+  border-radius: 50px;
+  box-sizing: border-box;
+  margin-right: 60px;
+  padding: 5px;
+  padding-left: 50px;
 }

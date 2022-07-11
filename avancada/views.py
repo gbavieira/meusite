@@ -81,26 +81,33 @@ def avancada(request):
                 bitola_real = i
                 pot_util = potencia*(1-perda_porc)
                 break 
+        
+        if form_avancada.is_valid():
+            print(form_avancada.errors)
+            lead = LeadAvancada.objects.create(nome=nome,desnivel=desnivel, vazao=vazao,potencia=potencia,mchs=mchs,dist_hidr=dist_hidr,dist_eletr=dist_eletr, modelo=modelo,tipo_cabo=tipo_cabo,)
+            lead.save()
 
-        lead = LeadAvancada.objects.create(nome=nome,desnivel=desnivel, vazao=vazao,potencia=potencia,mchs=mchs,dist_hidr=dist_hidr,dist_eletr=dist_eletr, modelo=modelo,tipo_cabo=tipo_cabo,)
-        lead.save()
+            dados = {
+                'form_avancada': form_avancada,
+                'diametro_econ':diametro_econ,
+                'diametro_comercial':diametro_comercial,
+                'vel_escoamento':vel_escoamento,
+                'perda_carga_unit':perda_carga_unit,
+                'perda_carga_tub':perda_carga_tub,
+                'perda_carga_conex_total':perda_carga_conex_total,
+                'desnivel_real':desnivel_real,
+                'porcentagem_perda':"{0:.0%}".format(porcentagem_perda),
+                'pot_util':pot_util,
+                'mchs':mchs,
+                'bitola_real':bitola_real,         
+            }
 
-        dados = {
-            'form_avancada': form_avancada,
-            'diametro_econ':diametro_econ,
-            'diametro_comercial':diametro_comercial,
-            'vel_escoamento':vel_escoamento,
-            'perda_carga_unit':perda_carga_unit,
-            'perda_carga_tub':perda_carga_tub,
-            'perda_carga_conex_total':perda_carga_conex_total,
-            'desnivel_real':desnivel_real,
-            'porcentagem_perda':"{0:.0%}".format(porcentagem_perda),
-            'pot_util':pot_util,
-            'mchs':mchs,
-            'bitola_real':bitola_real,         
-        }
-
-        return render(request,'avancada_resultado.html', dados)
+            return render(request,'avancada_resultado.html', dados)
+        else:
+            print('Form inválido')
+            print (form_avancada.errors)
+            dados = {'form_avancada':form_avancada,}
+            return render(request, 'avancada_forms.html', dados)
     
     else:
         form_avancada = LeadAvancadaForms()

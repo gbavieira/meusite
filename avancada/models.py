@@ -3,11 +3,10 @@ from datetime import datetime
 
 class LeadAvancada(models.Model):
     nome = models.CharField(max_length = 50)
-    telefone = models.CharField(max_length = 20)
-    cpf_cnpj = models.CharField(max_length = 17)
-    concessionaria = models.CharField(max_length = 50)
-    data = models.DateTimeField(default=datetime.now, blank=True)
     email = models.EmailField(max_length = 50)
+    telefone = models.CharField(max_length = 20,blank=True)
+    cpf_cnpj = models.CharField(max_length = 17,blank=True)
+    concessionaria = models.CharField(max_length = 50,blank=True)
     desnivel = models.IntegerField()
     vazao = models.IntegerField()
     potencia = models.IntegerField()
@@ -16,6 +15,7 @@ class LeadAvancada(models.Model):
     dist_eletr = models.IntegerField()
     modelo = models.CharField(max_length = 50)
     tipo_cabo = models.CharField(max_length =50)
+    data = models.DateTimeField(default=datetime.now, blank=True)
     def __str__(self):
         return self.nome
 

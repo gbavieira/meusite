@@ -13,7 +13,7 @@ class LeadBasicaForms (forms.ModelForm):
     class Meta:
         model = LeadBasica
         fields = '__all__'
-        labels = {'vazao':'Vazão','desnivel':'Desnível','cpf_cnpj':'CPF ou CNPJ','concessionaria':'Concessionária','email':'E-mail'}
+        labels = {'vazao':'Vazão (L/s)','desnivel':'Desnível (Queda) (m)','cpf_cnpj':'CPF ou CNPJ','concessionaria':'Concessionária','email':'E-mail'}
 
     def clean(self):
         nome = self.cleaned_data.get('nome')
