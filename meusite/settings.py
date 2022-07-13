@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'alurareceita',
     'widget_tweaks',
     'django_hosts',
+    'storages',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -130,17 +131,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'meusite/static')]
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #CSRF validations
-CSRF_TRUSTED_ORIGINS=['http://3.93.186.25/']
+CSRF_TRUSTED_ORIGINS=['https://gbavieira.com/']
 
 #Media
 MEDIA_ROOT = os.path.join (BASE_DIR, 'alurareceita/media')
@@ -160,5 +157,16 @@ AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
 AWS_SES_REGION_NAME = 'us-east-1' #(ex: us-east-2)
 AWS_SES_REGION_ENDPOINT = 'email.us-east-1.amazonaws.com' #(ex: email.us-east-2.amazonaws.com)
 
-#SUBDOMAINS
+#AWS S3 BUCKET CONFIG
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = 'gbavieira-site'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = 'static'
 
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'meusite/static')]
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
