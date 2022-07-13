@@ -29,7 +29,7 @@ def basica(request):
             return redirect('basica_forms')
 
         if form.is_valid():
-            lead = LeadBasica.objects.create(nome=nome,desnivel=desnivel, vazao=vazao,potencia=potencia,mchs=mchs,telefone=request.POST['telefone'],cpf_cnpj=request.POST['cpf_cnpj'],concessionaria=request.POST['concessionaria'],email=request.POST['email'],modelo=request.POST['modelo'],)
+            lead = LeadBasica.objects.create(nome=nome,desnivel=desnivel, vazao=vazao,potencia=potencia,mchs=mchs,telefone=request.POST['telefone'],concessionaria=request.POST['concessionaria'],email=request.POST['email'],modelo=request.POST['modelo'],)
             lead.save()
             print('3')
             dados = {
@@ -154,7 +154,20 @@ def avancada(request):
         
         if form_avancada.is_valid():
             print(form_avancada.errors)
-            lead = LeadAvancada.objects.create(nome=nome,desnivel=desnivel, vazao=vazao,potencia=potencia,mchs=mchs,dist_hidr=dist_hidr,dist_eletr=dist_eletr, modelo=modelo,tipo_cabo=tipo_cabo,)
+            lead = LeadAvancada.objects.create(
+                nome=nome,
+                desnivel=desnivel,
+                vazao=vazao,
+                potencia=potencia,
+                mchs=mchs,
+                dist_hidr=dist_hidr,
+                dist_eletr=dist_eletr,
+                modelo=modelo,
+                tipo_cabo=tipo_cabo,
+                email=request.POST['email'],
+                telefone=request.POST['telefone'],
+                concessionaria=request.POST['concessionaria'],
+                )
             lead.save()
 
             dados = {
