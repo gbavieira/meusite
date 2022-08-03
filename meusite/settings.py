@@ -137,7 +137,7 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #CSRF validations
-CSRF_TRUSTED_ORIGINS=['https://gbavieira.com/']
+CSRF_TRUSTED_ORIGINS=['https://gbavieira.com/*',]
 
 #Media
 MEDIA_ROOT = os.path.join (BASE_DIR, 'alurareceita/media')
@@ -170,3 +170,4 @@ AWS_LOCATION = 'static'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'meusite/static')]
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'meusite.storage_backends.MediaStorage'
