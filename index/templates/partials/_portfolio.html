@@ -9,7 +9,7 @@ Portfolio Section Start
   <div class="col-md-4 col-sm-6">
     <figure class="wow fadeInLeft animated portfolio-item" data-wow-duration="500ms" data-wow-delay="0ms">
       <div class="img-wrapper">
-        <img src="{% static 'images/portfolio/mch.webp' %}" class="img-fluid" alt="this is a title" width="500" height="500">
+        <img src="{% static 'images/portfolio/mch.webp' %}" class="img-fluid" alt="this is a title" width="300" height="300">
         <div class="overlay">
           <div class="buttons">
             <a target="_blank" href="{% url 'calculadora' %}">Demo</a>
@@ -32,7 +32,7 @@ Portfolio Section Start
   <div class="col-md-4 col-sm-6">
     <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="300ms">
       <div class="img-wrapper">
-        <img src="{% static 'images/portfolio/recipe.png' %}" class="img-fluid" alt="this is a title" width="500" height="500" >
+        <img src="{% static 'images/portfolio/recipe.png' %}" class="img-fluid" alt="this is a title" width="300" height="300" >
         <div class="overlay">
           <div class="buttons">
             <a target="_blank" href="{% url 'index_receita' %}">Demo</a>
@@ -48,6 +48,29 @@ Portfolio Section Start
         </h4>
         <p>
           Website for recipes from Alura Django course.
+        </p>
+      </figcaption>
+    </figure>
+  </div>
+  <div class="col-md-4 col-sm-6">
+    <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="300ms">
+      <div class="img-wrapper">
+        <img src="{% static 'images/t20.avif' %}" class="img-fluid-1" alt="this is a title" width="300" height="300" >
+        <div class="overlay">
+          <div class="buttons">
+            <a target="_blank" href="https://ameacas-t20.herokuapp.com/">Demo</a>
+            <a target="_blank" href="https://github.com/gbavieira/tormenta">GitHub</a>
+          </div>
+        </div>
+      </div>
+      <figcaption>
+        <h4>
+          <a href="{% url 'index_receita' %}">
+            Tormenta 20 Random Generator
+          </a>
+        </h4>
+        <p>
+          A random creatures generator for Tormenta 20 RPG
         </p>
       </figcaption>
     </figure>

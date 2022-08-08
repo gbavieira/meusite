@@ -450,16 +450,17 @@ figure {
   background: #fff;
   margin-bottom: 45px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.04), 0 2px 10px 0 rgba(0, 0, 0, 0.06);
-  height: 400px
+  height: 350px
 }
 figure .img-wrapper {
   position: relative;
   overflow: hidden;
-  height: 290px;
+  height: 200px;
 }
 figure img {
   transform: scale3d(1, 1, 1);
   transition: transform 400ms;
+  object-fit:cover;
 }
 figure:hover img {
   transform: scale3d(1.2, 1.2, 1);
@@ -513,7 +514,7 @@ figure .buttons a:focus {
   text-decoration: none;
 }
 figure figcaption {
-  padding: 20px 25px;
+  padding: 5px 25px;
   margin-top: 0;
   color: #666;
 }
@@ -1164,3 +1165,8 @@ ul.social-icons li {
   padding-left:50px;
 }
 /*# sourceMappingURL=style.css.map */
+
+.img-fluid-1{
+  width:100%;
+  object-fit:cover;
+}
